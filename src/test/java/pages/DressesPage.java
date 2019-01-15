@@ -11,20 +11,22 @@ import steps.base.BaseUtil;
 
 public class DressesPage {
 
-    DressesLocators dressesLocators;
-    WebDriver driver;
+    static DressesLocators dressesLocators;
+    static WebDriver driver;
+    static BaseUtil base;
 
     //Elements
-    Link sortByOverlay;
-    Link sortByOption3;
-    Link firstItemInGridImg;
-    Label dressesPageSubHeading;
-    Label firstItemInGrid;
+    private static Link sortByOverlay=null;
+    private static Link sortByOption3=null;
+    private static Link firstItemInGridImg=null;
+    private static Label dressesPageSubHeading=null;
+    private static Label firstItemInGrid=null;
 
     public DressesPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
+        this.base = base;
 
         //Elements
         sortByOverlay = new Link(base, driver.findElement(By.id(dressesLocators.SORT_BY_OVERLAY_ID)));

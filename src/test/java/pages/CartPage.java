@@ -11,18 +11,20 @@ import steps.base.BaseUtil;
 
 public class CartPage {
 
-    CartLocators cartLocators;
-    WebDriver driver;
+    static CartLocators cartLocators;
+    static WebDriver driver;
+    static BaseUtil base;
 
     //Elements
-    Label dressInCart;
-    Label cartPageHeading;
-    Link logoutLink;
+    private static Label dressInCart=null;
+    private static Label cartPageHeading=null;
+    private static Link logoutLink=null;
 
     public CartPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
+        this.base = base;
 
         //Elements
         dressInCart = new Label(base, driver.findElement(By.xpath(cartLocators.DRESS_IN_CART_XPATH)));

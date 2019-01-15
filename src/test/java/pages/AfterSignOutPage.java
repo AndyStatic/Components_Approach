@@ -12,23 +12,33 @@ import java.util.concurrent.TimeUnit;
 
 public class AfterSignOutPage {
 
-    AfterSignOutLocators afterSignOutLocators;
-    WebDriver driver;
+    static AfterSignOutLocators afterSignOutLocators;
+    static WebDriver driver;
+    static BaseUtil base;
 
     //Elements
-    Link signInLink;
+    private static Link signInLink=null;
 
     public AfterSignOutPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
+        this.base = base;
+    }
 
-        //Elements
-        signInLink = new Link(base, driver.findElement(By.xpath(afterSignOutLocators.SIGN_IN_LINK_XPATH)));
+    public static Link signInLinkSingleton()
+    {
+        // To ensure only one instance is created
+        if (signInLink == null)
+        {
+            signInLink = new Link(base, driver.findElement(By.xpath(afterSignOutLocators.SIGN_IN_LINK_XPATH)));
+        }
+        return signInLink;
     }
 
     //Sign in business login
     public boolean signInLinkIsDisplayed() {
+        signInLink = signInLinkSingleton();
         return signInLink.IsElementDisplayed();
     }
 }

@@ -10,18 +10,20 @@ import steps.base.BaseUtil;
 
 public class DressDetailsPage {
 
-    DressDetailsLocators dressDetailsLocators;
-    WebDriver driver;
+    static DressDetailsLocators dressDetailsLocators;
+    static WebDriver driver;
+    static BaseUtil base;
 
     //Elements
-    Button addToCartBtn;
-    Label dressesNameHeading;
-    Link proceedToCheckOutBtnOnOverlay;
+    private static Button addToCartBtn=null;
+    private static Label dressesNameHeading=null;
+    private static Link proceedToCheckOutBtnOnOverlay=null;
 
     public DressDetailsPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
+        this.base = base;
 
         //Elements
         addToCartBtn = new Button(base, driver.findElement(By.xpath(dressDetailsLocators.ADD_TO_CART_BTN_XPATH)));

@@ -14,40 +14,30 @@ public class HomePage {
     static WebDriver driver;
     static BaseUtil base;
 
-    //Elements
-    Link signInLink;
-
-    // static variable single_instance of type Singleton
-    private static Link single_instance=null;
+    private static Link signInLink=null;
 
     public HomePage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
         this.base = base;
-
-        //Elements
-        signInLink = new Link(base, driver.findElement(By.className(homeLocators.SIGN_IN_LINK_CLASSNAME)));
     }
 
-    // static method to create instance of Singleton class
-    public static Link Singleton()
+    public static Link signInLinkSingleton()
     {
         // To ensure only one instance is created
-        if (single_instance == null)
+        if (signInLink == null)
         {
-            single_instance = new Link(base, driver.findElement(By.className(homeLocators.SIGN_IN_LINK_CLASSNAME)));
+            signInLink = new Link(base, driver.findElement(By.className(homeLocators.SIGN_IN_LINK_CLASSNAME)));
         }
-        return single_instance;
+        return signInLink;
     }
 
     //Business Logic
 
     public void iClickSignInLink(){
-        //signInLink.waitForElementIsClickable();
-        //signInLink.Click();
-        single_instance = Singleton();
-        single_instance.waitForElementIsClickable();
-        single_instance.Click();
+        signInLink = signInLinkSingleton();
+        signInLink.waitForElementIsClickable();
+        signInLink.Click();
     }
 }
