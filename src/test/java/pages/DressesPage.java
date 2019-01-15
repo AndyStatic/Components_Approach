@@ -1,0 +1,62 @@
+package pages;
+
+import components.Label;
+import components.Link;
+import locators.DressesLocators;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import steps.base.BaseUtil;
+
+public class DressesPage {
+
+    DressesLocators dressesLocators;
+    WebDriver driver;
+
+    //Elements
+    Link sortByOverlay;
+    Link sortByOption3;
+    Link firstItemInGridImg;
+    Label dressesPageSubHeading;
+    Label firstItemInGrid;
+
+    public DressesPage(BaseUtil base){
+        //Initialize the page object
+        //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
+        driver = base.driver;
+
+        //Elements
+        sortByOverlay = new Link(base, driver.findElement(By.id(dressesLocators.SORT_BY_OVERLAY_ID)));
+        sortByOption3 = new Link(base, driver.findElement(By.xpath(dressesLocators.SORT_BY_OPTION_3_XPATH)));
+        firstItemInGridImg = new Link(base, driver.findElement(By.xpath(dressesLocators.FIRST_ITEM_IN_GRID_IMG_XPATH)));
+        dressesPageSubHeading = new Label(base, driver.findElement(By.xpath(dressesLocators.DRESSES_SUBHEADING_LABEL_XPATH)));
+        firstItemInGrid = new Label(base, driver.findElement(By.xpath(dressesLocators.FIRST_ITEM_IN_GRID_XPATH)));
+    }
+
+    //Sort Business Logic
+    public void iSelectSortByPriceHighestFirst(){
+        firstItemInGridImg.ScrollElementIntoView();
+
+        sortByOverlay.waitForVisibility();
+        sortByOverlay.Click();
+
+        sortByOption3.waitForVisibility();
+        sortByOption3.Click();
+
+        //sort is broken or unknown algorithm
+        //Here need to have waittime for sorting script to FINISH
+    }
+
+    //Select Business Logic
+    public void iClickFirstItemInGridImage(){
+        firstItemInGridImg.HoverToElement();
+        firstItemInGridImg.ClickElemntWithScript();
+    }
+
+    //Misc Business Logic
+    public boolean isPageWithSubHeadingTextDisplayed(){
+        return dressesPageSubHeading.IsElementDisplayed();
+    }
+
+}
