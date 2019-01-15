@@ -2,6 +2,7 @@ package pages;
 
 import components.Label;
 import components.Link;
+import components.TextBox;
 import locators.CartLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,8 +33,39 @@ public class CartPage {
         logoutLink = new Link(base, driver.findElement(By.className(cartLocators.LOGOUT_LINK_CLASSNAME)));
     }
 
+    public static Label dressInCartSingleton()
+    {
+        // To ensure only one instance is created
+        if (dressInCart == null)
+        {
+            dressInCart = new Label(base, driver.findElement(By.xpath(cartLocators.DRESS_IN_CART_XPATH)));
+        }
+        return dressInCart;
+    }
+
+    public static Label cartPageHeadingSingleton()
+    {
+        // To ensure only one instance is created
+        if (cartPageHeading == null)
+        {
+            cartPageHeading = new Label(base, driver.findElement(By.xpath(cartLocators.CART_PAGE_HEADING_LABEL_XPATH)));
+        }
+        return cartPageHeading;
+    }
+
+    public static Link logoutLinkSingleton()
+    {
+        // To ensure only one instance is created
+        if (logoutLink == null)
+        {
+            logoutLink = new Link(base, driver.findElement(By.className(cartLocators.LOGOUT_LINK_CLASSNAME)));
+        }
+        return logoutLink;
+    }
+
     //Dress in cart Business Logic
     public String cartContainsDressName(){
+        dressInCart = dressInCartSingleton();
         try
         {
             if(dressInCart.IsElementDisplayed())
@@ -49,11 +81,13 @@ public class CartPage {
 
     //Misc Business Logic
     public boolean isPageWithHeadingTextDisplayed(){
+        cartPageHeading = cartPageHeadingSingleton();
         return cartPageHeading.IsElementDisplayed();
     }
 
     //Logout Business Logic
     public void iClickSignOutLink(){
+        logoutLink = logoutLinkSingleton();
         logoutLink.waitForElementIsClickable();
         logoutLink.Click();
     }

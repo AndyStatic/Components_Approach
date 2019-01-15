@@ -35,7 +35,7 @@ public class AuthenticationPage {
         // To ensure only one instance is created
         if (emailCreateInput == null)
         {
-            emailCreateInput = new TextBox(base, driver.findElement(By.xpath(authenticationLocators.EMAIL_CREATE_INPUT_ID)));
+            emailCreateInput = new TextBox(base, driver.findElement(By.id(authenticationLocators.EMAIL_CREATE_INPUT_ID)));
         }
         return emailCreateInput;
     }
@@ -45,7 +45,7 @@ public class AuthenticationPage {
         // To ensure only one instance is created
         if (submitCreateButton == null)
         {
-            submitCreateButton = new Button(base, driver.findElement(By.xpath(authenticationLocators.SUBMIT_CREATE_BTN_ID)));
+            submitCreateButton = new Button(base, driver.findElement(By.id(authenticationLocators.SUBMIT_CREATE_BTN_ID)));
         }
         return submitCreateButton;
     }
@@ -55,7 +55,7 @@ public class AuthenticationPage {
         // To ensure only one instance is created
         if (emaiInput == null)
         {
-            emaiInput = new TextBox(base, driver.findElement(By.xpath(authenticationLocators.EMAIL_REGISTERED_INPUT_ID)));
+            emaiInput = new TextBox(base, driver.findElement(By.id(authenticationLocators.EMAIL_REGISTERED_INPUT_ID)));
         }
         return emaiInput;
     }
@@ -65,7 +65,7 @@ public class AuthenticationPage {
         // To ensure only one instance is created
         if (passwdInput == null)
         {
-            passwdInput = new TextBox(base, driver.findElement(By.xpath(authenticationLocators.PASSWORD_REGISTERED_INPUT_ID)));
+            passwdInput = new TextBox(base, driver.findElement(By.id(authenticationLocators.PASSWORD_REGISTERED_INPUT_ID)));
         }
         return passwdInput;
     }
@@ -75,7 +75,7 @@ public class AuthenticationPage {
         // To ensure only one instance is created
         if (submitLoginButton == null)
         {
-            submitLoginButton = new Button(base, driver.findElement(By.xpath(authenticationLocators.SUBMIT_REGISTERED_BTN_ID)));
+            submitLoginButton = new Button(base, driver.findElement(By.id(authenticationLocators.SUBMIT_REGISTERED_BTN_ID)));
         }
         return submitLoginButton;
     }

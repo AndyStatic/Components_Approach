@@ -5,6 +5,24 @@ Feature: Pre-interview Exercise for Test Engineer Candidates
     Given I navigate to automation practice home page
     When I click Sign in link
     Then I navigate to page with title "Login - My Store"
+    When I enter "hmrc113@test.com" email address for new account
+    And I press the Create an account button
+    Then Create New Account page heading is displayed
+    When I enter "Hello" first name for new account
+    And I enter "World" last name for new account
+    And I enter "Qwerty" password for new account
+    And I enter "Test Str 123" address 1 for new account
+    And I enter "London" city for new account
+    And I select "Alaska" state for new account
+    And I enter "00000" post code for new account
+    And I enter "123456789" mobile phone for new account
+    And I press the submit account button
+    Then My Account page with welcome text is displayed
+
+  Scenario: Login, find the most expensive dress and add it to the cart and Logout
+    Given I navigate to automation practice home page
+    When I click Sign in link
+    Then I navigate to page with title "Login - My Store"
     When I enter "hmrc113@test.com" email address for registered account
     And I enter "Qwerty" password for registered account
     And I press the Sign in button
