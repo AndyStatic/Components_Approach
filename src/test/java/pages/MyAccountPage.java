@@ -11,20 +11,18 @@ import steps.base.BaseUtil;
 
 public class MyAccountPage {
 
-    static MyAccountLocators myAccountLocators;
-    static WebDriver driver;
-    static BaseUtil base;
+    MyAccountLocators myAccountLocators;
+    WebDriver driver;
 
     //Elements
-    private static Link dressesLink=null;
-    private static Link cart=null;
-    private static Label accountWelcomeMsg=null;
+    Link dressesLink;
+    Link cart;
+    Label accountWelcomeMsg;
 
     public MyAccountPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
-        this.base = base;
 
         //Elements
         dressesLink = new Link(base, driver.findElement(By.xpath(myAccountLocators.DRESS_LINK_XPATH)));

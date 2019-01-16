@@ -13,29 +13,27 @@ import steps.base.BaseUtil;
 
 public class CreateNewAccountPage {
 
-    static CreateNewAccountLocators createNewAccountLocators;
-    static WebDriver driver;
-    static BaseUtil base;
+    CreateNewAccountLocators createNewAccountLocators;
+    WebDriver driver;
 
     //Elements
-    private static TextBox firstNameInput=null;
-    private static TextBox lastNameInput=null;
-    private static TextBox passwordInput=null;
-    private static TextBox addressInput=null;
-    private static TextBox cityInput=null;
-    private static Link stateSelectorOverlay=null;
-    private static Link stateOption2=null;
-    private static TextBox postCodeInput=null;
-    private static TextBox mobilePhoneInput=null;
-    private static Button submitAccountButton=null;
-    private static Label createNewAccPageHeading=null;
+    TextBox firstNameInput;
+    TextBox lastNameInput;
+    TextBox passwordInput;
+    TextBox addressInput;
+    TextBox cityInput;
+    Link stateSelectorOverlay;
+    Link stateOption2;
+    TextBox postCodeInput;
+    TextBox mobilePhoneInput;
+    Button submitAccountButton;
+    Label createNewAccPageHeading;
 
 
     public CreateNewAccountPage(BaseUtil base){
         //Initialize the page object
         //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
-        this.base = base;
 
         //Elements
         firstNameInput = new TextBox(base, driver.findElement(By.id(createNewAccountLocators.FIRST_NAME_INPUT_ID)));

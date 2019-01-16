@@ -1,11 +1,11 @@
-Feature: Pre-interview Exercise for Test Engineer Candidates
+  Feature: Pre-interview Exercise for Test Engineer Candidates
   This feature covers pre-interview exercise for HMRC Digital Worthing and http://automationpractice.com/index.php
 
-  Scenario: Login, find the most expensive dress and add it to the cart and Logout
+  Scenario: Create new account
     Given I navigate to automation practice home page
     When I click Sign in link
     Then I navigate to page with title "Login - My Store"
-    When I enter "hmrc113@test.com" email address for new account
+    When I enter "hmrc114@test.com" email address for new account
     And I press the Create an account button
     Then Create New Account page heading is displayed
     When I enter "Hello" first name for new account
@@ -23,7 +23,7 @@ Feature: Pre-interview Exercise for Test Engineer Candidates
     Given I navigate to automation practice home page
     When I click Sign in link
     Then I navigate to page with title "Login - My Store"
-    When I enter "hmrc113@test.com" email address for registered account
+    When I enter "hmrc114@test.com" email address for registered account
     And I enter "Qwerty" password for registered account
     And I press the Sign in button
     Then My Account page with welcome text is displayed
@@ -43,7 +43,7 @@ Feature: Pre-interview Exercise for Test Engineer Candidates
     Given I navigate to automation practice home page
     When I click Sign in link
     Then I navigate to page with title "Login - My Store"
-    When I enter "hmrc113@test.com" email address for registered account
+    When I enter "hmrc114@test.com" email address for registered account
     And I enter "Qwerty" password for registered account
     And I press the Sign in button
     Then My Account page with welcome text is displayed
