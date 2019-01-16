@@ -23,7 +23,7 @@ public class CartPage {
 
     public CartPage(BaseUtil base){
         //Initialize the page object
-        PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
+        //PageFactory.initElements(new AjaxElementLocatorFactory(base.driver, 15), this);
         driver = base.driver;
 
         //Elements
