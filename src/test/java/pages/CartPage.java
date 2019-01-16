@@ -2,7 +2,6 @@ package pages;
 
 import components.Label;
 import components.Link;
-import components.TextBox;
 import locators.CartLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
